@@ -3,7 +3,7 @@
 import random
 
 min = 1
-max = 10
+max = 100
 count = 0
 target = random.randint(min, max)
 print("=============猜數字遊戲=============\n\n")
@@ -13,8 +13,12 @@ while True:
     count += 1
     if(keyin == target):
         print(f"賓果！恭喜猜對了，答案是：{target}")
-        print(f"你共猜了{count}次")
+        print(f"您共猜了{count}次")
         break
-    else:
-        print(f"猜錯了，你已經猜了{count}次")
-print("")
+    elif keyin > target:
+        print(f"再小一點")
+        max = keyin - 1
+    elif keyin < target:
+        min = keyin + 1
+    print(f"您已經猜了{count}次")
+print("遊戲結束")
